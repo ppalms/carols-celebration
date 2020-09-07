@@ -13,7 +13,12 @@
     Enter your name and email address to be invited to the virtual celebration
   </p>
 
-  <form class="w-full mx-auto" name="zoom-register" method="POST" netlify>
+  <form
+    class="w-full mx-auto"
+    name="zoom-register"
+    method="POST"
+    data-netlify="true"
+  >
     <div class="w-full mt-2 border-b border-blue-500">
       <input
         type="text"
@@ -49,6 +54,7 @@
 
     <div class="w-full mt-4 text-center">
       <button
+        type="submit"
         class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 shadow focus:outline-none focus:shadow-outline"
       >
         Register

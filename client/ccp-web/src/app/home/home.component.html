@@ -10,10 +10,10 @@
   />
 
   <p class="text-lg">
-    Enter your Zoom email address to be invited to the virtual celebration
+    Enter your name and email address to be invited to the virtual celebration
   </p>
 
-  <form class="w-full mx-auto">
+  <form class="w-full mx-auto" name="zoom-register" method="POST" netlify>
     <div class="w-full mt-2 border-b border-blue-500">
       <input
         type="text"
@@ -42,12 +42,12 @@
         id="zoom-email"
         name="zoom-email"
         class="appearance-none bg-transparent border-none w-full text-gray-700 mr-3 py-2 px-2 leading-tight focus:outline-none"
-        placeholder="Zoom email"
+        placeholder="Email address"
         required
       />
     </div>
 
-    <div class="w-full mt-2 text-center">
+    <div class="w-full mt-4 text-center">
       <button
         class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 shadow focus:outline-none focus:shadow-outline"
       >

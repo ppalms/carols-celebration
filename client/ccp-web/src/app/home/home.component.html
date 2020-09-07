@@ -14,51 +14,75 @@
   </p>
 
   <form
+    #registerForm="ngForm"
     class="w-full mx-auto"
     name="zoom-register"
-    method="POST"
-    data-netlify="true"
-    data-netlify-honeypot="bot-field"
+    (ngSubmit)="onSubmit(registerForm)"
+    netlify
+    netlify-honeypot="bot-field"
   >
-    <input type="hidden" name="form-name" value="zoom-register" />
-
     <div class="w-full mt-2 border-b border-blue-500">
       <input
         type="text"
         id="first-name"
-        name="first-name"
+        name="firstName"
+        [(ngModel)]="virtualGuest.firstName"
+        #firstName="ngModel"
         class="appearance-none bg-transparent border-none w-full text-gray-700 mr-3 py-2 px-2 leading-tight focus:outline-none"
         placeholder="First name"
         required
       />
+    </div>
+    <div
+      *ngIf="firstName.invalid && (firstName.dirty || firstName.touched)"
+      class="text-red-700 ml-2"
+    >
+      <small>First name is required</small>
     </div>
 
     <div class="w-full mt-2 border-b border-blue-500">
       <input
         type="text"
         id="last-name"
-        name="last-name"
+        name="lastName"
+        [(ngModel)]="virtualGuest.lastName"
+        #lastName="ngModel"
         class="appearance-none bg-transparent border-none w-full text-gray-700 mr-3 py-2 px-2 leading-tight focus:outline-none"
         placeholder="Last name"
         required
       />
+    </div>
+    <div
+      *ngIf="lastName.invalid && (lastName.dirty || lastName.touched)"
+      class="text-red-700 ml-2"
+    >
+      <small>Last name is required</small>
     </div>
 
     <div class="w-full mt-2 border-b border-blue-500">
       <input
         type="email"
         id="zoom-email"
-        name="zoom-email"
+        name="zoomEmail"
+        [(ngModel)]="virtualGuest.zoomEmail"
+        #zoomEmail="ngModel"
         class="appearance-none bg-transparent border-none w-full text-gray-700 mr-3 py-2 px-2 leading-tight focus:outline-none"
         placeholder="Email address"
         required
       />
+    </div>
+    <div
+      *ngIf="zoomEmail.invalid && (zoomEmail.dirty || zoomEmail.touched)"
+      class="text-red-700 ml-2"
+    >
+      <small>Email address is required</small>
     </div>
 
     <div class="w-full mt-4 text-center">
       <button
         type="submit"
         class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 shadow focus:outline-none focus:shadow-outline"
+        [disabled]="!registerForm.valid"
       >
         Register
       </button>

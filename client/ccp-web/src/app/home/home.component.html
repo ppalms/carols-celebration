@@ -1,8 +1,10 @@
 <h1 class="text-center text-3xl md:text-5xl">Carol's Celebration</h1>
 
-<div class="w-11/12 sm:w-4/5 md:w-1/2 bg-white shadow-md p-6 md:p-10 mx-auto mt-4">
+<div
+  class="w-11/12 sm:w-4/5 md:w-1/2 bg-white shadow-md p-6 md:p-10 mx-auto mt-4"
+>
   <img
-    class="border-solid rounded mb-4"
+    class="border-solid rounded mx-auto mb-4 sm:max-w-xs md:max-w-full"
     src="assets/images/sunflower.jpg"
     alt="sunflower"
   />
@@ -14,11 +16,34 @@
   <form class="w-full mx-auto">
     <div class="w-full mt-2 border-b border-blue-500">
       <input
+        type="text"
+        id="first-name"
+        name="first-name"
+        class="appearance-none bg-transparent border-none w-full text-gray-700 mr-3 py-2 px-2 leading-tight focus:outline-none"
+        placeholder="First name"
+        required
+      />
+    </div>
+
+    <div class="w-full mt-2 border-b border-blue-500">
+      <input
+        type="text"
+        id="last-name"
+        name="last-name"
+        class="appearance-none bg-transparent border-none w-full text-gray-700 mr-3 py-2 px-2 leading-tight focus:outline-none"
+        placeholder="Last name"
+        required
+      />
+    </div>
+
+    <div class="w-full mt-2 border-b border-blue-500">
+      <input
         type="email"
         id="zoom-email"
         name="zoom-email"
         class="appearance-none bg-transparent border-none w-full text-gray-700 mr-3 py-2 px-2 leading-tight focus:outline-none"
         placeholder="Zoom email"
+        required
       />
     </div>
 

@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { HttpParams, HttpClient } from '@angular/common/http';
 import { VirtualGuest } from './shared/virtual-guest.model';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'ccp-home',
@@ -19,11 +20,13 @@ export class HomeComponent {
 
   constructor(public http: HttpClient) {}
 
-  onSubmit(registerForm) {
+  onSubmit(registerForm: NgForm) {
     if (!registerForm.valid) {
       this.validateAll = true;
       return;
     }
+
+    registerForm.form.disable();
 
     const body = new HttpParams()
       .set('form-name', 'zoom-register')
@@ -37,6 +40,7 @@ export class HomeComponent {
       })
       .subscribe((_res) => {
         this.showForm = false;
+        registerForm.form.enable();
       });
   }
 }

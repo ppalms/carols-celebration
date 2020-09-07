@@ -1,4 +1,4 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component } from '@angular/core';
 import { HttpParams, HttpClient } from '@angular/common/http';
 import { VirtualGuest } from './shared/virtual-guest.model';
 import { NgForm } from '@angular/forms';
@@ -37,6 +37,7 @@ export class HomeComponent {
     this.http
       .post('/', body.toString(), {
         headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        responseType: 'text',
       })
       .subscribe((_res) => {
         this.showForm = false;

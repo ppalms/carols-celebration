@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { HttpParams, HttpClient } from '@angular/common/http';
 import { VirtualGuest } from './shared/virtual-guest.model';
 
@@ -8,6 +8,9 @@ import { VirtualGuest } from './shared/virtual-guest.model';
   styleUrls: ['./home.component.scss'],
 })
 export class HomeComponent {
+  showForm = true;
+  validateAll = false;
+
   virtualGuest: VirtualGuest = {
     firstName: '',
     lastName: '',
@@ -16,10 +19,9 @@ export class HomeComponent {
 
   constructor(public http: HttpClient) {}
 
-  onSubmit(zoomRegistration) {
-    if (!zoomRegistration.valid) {
-      console.log(this.virtualGuest);
-
+  onSubmit(registerForm) {
+    if (!registerForm.valid) {
+      this.validateAll = true;
       return;
     }
 
@@ -33,8 +35,8 @@ export class HomeComponent {
       .post('/', body.toString(), {
         headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
       })
-      .subscribe((res) => {
-        console.log(res);
+      .subscribe((_res) => {
+        this.showForm = false;
       });
   }
 }

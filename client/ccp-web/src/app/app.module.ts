@@ -8,6 +8,8 @@ import { AppComponent } from './app.component';
 import { NavComponent } from './nav/nav.component';
 import { HomeComponent } from './home/home.component';
 import { RegisterSuccessComponent } from './home/register-success/register-success.component';
+import { RegisterComponent } from './register/register.component';
+import { LandingComponent } from './landing/landing.component';
 
 @NgModule({
   declarations: [
@@ -15,6 +17,8 @@ import { RegisterSuccessComponent } from './home/register-success/register-succe
     NavComponent,
     HomeComponent,
     RegisterSuccessComponent,
+    RegisterComponent,
+    LandingComponent,
   ],
   imports: [
     BrowserModule,

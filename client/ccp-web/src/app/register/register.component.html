@@ -1,0 +1,114 @@
+<div class="max-w-xl mx-auto sm:flex">
+  <div class="sm:max-w-1/2">
+    <img src="/assets/images/mom-bw.jpg" class="shadow" alt="mom in nyc" />
+  </div>
+
+  <div class="mt-4 sm:mt-0 sm:ml-6">
+    <h1 class="text-2xl leading-none mt-6 sm:mt-0 mb-2">
+      Let's Remember Carol Together
+    </h1>
+
+    <p class="text-base lg:text-lg mt-4">
+      It's time for all of us who loved Carol to gather together to share
+      stories and remember a wonderful person.
+    </p>
+
+    <p class="text-xl mt-4">October 3, 2020 at 12pm</p>
+
+    <p class="text-base lg:text-lg mt-4">
+      The celebration will be conducted via Zoom. Enter your name and the email
+      address associated with your Zoom account to be invited to the virtual
+      celebration:
+    </p>
+
+    <form
+      *ngIf="showForm"
+      #registerForm="ngForm"
+      class="w-full mx-auto"
+      name="zoom-register"
+      (submit)="onSubmit(registerForm)"
+      netlify
+      netlify-honeypot="bot-field"
+    >
+      <div class="w-full mt-2 border-b border-blue-500">
+        <input
+          type="text"
+          id="first-name"
+          name="firstName"
+          [(ngModel)]="virtualGuest.firstName"
+          #firstName="ngModel"
+          class="appearance-none bg-transparent border-none w-full text-gray-700 mr-3 py-2 px-2 leading-tight focus:outline-none"
+          placeholder="First name"
+          required
+        />
+      </div>
+      <div
+        *ngIf="
+          firstName.invalid &&
+          (firstName.dirty || firstName.touched || validateAll)
+        "
+        class="text-red-700 ml-2"
+      >
+        <small>First name is required</small>
+      </div>
+
+      <div class="w-full mt-2 border-b border-blue-500">
+        <input
+          type="text"
+          id="last-name"
+          name="lastName"
+          [(ngModel)]="virtualGuest.lastName"
+          #lastName="ngModel"
+          class="appearance-none bg-transparent border-none w-full text-gray-700 mr-3 py-2 px-2 leading-tight focus:outline-none"
+          placeholder="Last name"
+          required
+        />
+      </div>
+      <div
+        *ngIf="
+          lastName.invalid &&
+          (lastName.dirty || lastName.touched || validateAll)
+        "
+        class="text-red-700 ml-2"
+      >
+        <small>Last name is required</small>
+      </div>
+
+      <div class="w-full mt-2 border-b border-blue-500">
+        <input
+          type="email"
+          id="zoom-email"
+          name="zoomEmail"
+          [(ngModel)]="virtualGuest.zoomEmail"
+          #zoomEmail="ngModel"
+          class="appearance-none bg-transparent border-none w-full text-gray-700 mr-3 py-2 px-2 leading-tight focus:outline-none"
+          placeholder="Email address"
+          required
+        />
+      </div>
+      <div
+        *ngIf="
+          zoomEmail.invalid &&
+          (zoomEmail.dirty || zoomEmail.touched || validateAll)
+        "
+        class="text-red-700 ml-2"
+      >
+        <small>Email address is required</small>
+      </div>
+
+      <div class="w-full mt-4 text-center">
+        <button
+          type="submit"
+          class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 shadow focus:outline-none focus:shadow-outline"
+          [disabled]="!registerForm.dirty"
+        >
+          Register
+        </button>
+      </div>
+    </form>
+
+    <div *ngIf="!showForm" class="bg-green-200 p-4 mt-8 mb-4 text-center">
+      You have successfully registered
+    </div>
+  </div>
+</div>

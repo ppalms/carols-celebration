@@ -3,10 +3,6 @@
 @import "tailwindcss/utilities";
 
 @layer base {
-  body {
-    @apply bg-blue-200 font-body;
-  }
-
   h1 {
     @apply text-gray-800 font-display;
   }

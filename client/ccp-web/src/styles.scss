@@ -6,4 +6,28 @@
   h1 {
     @apply text-gray-800 font-display;
   }
+
+  .bg-flower {
+    background: url("/assets/images/bg-cone-flower.jpg") top no-repeat;
+    -webkit-background-size: 100% auto;
+    -moz-background-size: 100% auto;
+    -o-background-size: 100% auto;
+    background-size: 100% auto;
+  }
+
+  .bg-body {
+    background: url("/assets/images/bg-body.jpg");
+    -webkit-background-size: 100% auto;
+    -moz-background-size: 100% auto;
+    -o-background-size: 100% auto;
+    background-size: 100% auto;
+  }
+
+  .bg-bottom {
+    background: url("/assets/images/bg-bottom.jpg") bottom no-repeat;
+    -webkit-background-size: 100% auto;
+    -moz-background-size: 100% auto;
+    -o-background-size: 100% auto;
+    background-size: 100% auto;
+  }
 }

@@ -6,8 +6,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NavComponent } from './nav/nav.component';
-import { HomeComponent } from './home/home.component';
-import { RegisterSuccessComponent } from './home/register-success/register-success.component';
+import { TributesComponent } from './tributes/tributes.component';
 import { RegisterComponent } from './register/register.component';
 import { LandingComponent } from './landing/landing.component';
 
@@ -15,18 +14,12 @@ import { LandingComponent } from './landing/landing.component';
   declarations: [
     AppComponent,
     NavComponent,
-    HomeComponent,
-    RegisterSuccessComponent,
+    TributesComponent,
     RegisterComponent,
     LandingComponent,
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    FormsModule,
-    HttpClientModule,
-  ],
+  imports: [BrowserModule, AppRoutingModule, FormsModule, HttpClientModule],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

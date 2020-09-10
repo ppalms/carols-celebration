@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { NgForm } from '@angular/forms';
-import { VirtualGuest } from '../home/shared/virtual-guest.model';
+import { VirtualGuest } from './shared/virtual-guest.model';
 
 @Component({
   selector: 'ccp-register',

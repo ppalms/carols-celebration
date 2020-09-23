@@ -1,15 +1,16 @@
 import { Component, OnInit } from '@angular/core';
+import { VirtualGuest } from '../register/shared/virtual-guest.model';
 
 @Component({
   selector: 'ccp-landing',
   templateUrl: './landing.component.html',
-  styleUrls: ['./landing.component.scss']
+  styleUrls: ['./landing.component.scss'],
 })
-export class LandingComponent implements OnInit {
+export class LandingComponent {
+  virtualGuest: VirtualGuest = new VirtualGuest();
 
-  constructor() { }
+  constructor() {}
 
-  ngOnInit(): void {
-  }
-
+  onRegister = (virtualGuest: VirtualGuest) =>
+    (this.virtualGuest = virtualGuest);
 }

@@ -1,13 +1,15 @@
 <div class="px-12 pt-64 leading-none sm:h-screen bg-flower">
-  <h1 class="text-4xl text-center font-title pt-16 pb-32 text-2xl md:text-5xl">
+  <h1 class="text-4xl text-center font-title pt-16 pb-32 md:text-5xl">
     You Belong Among the Wildflowers
   </h1>
 </div>
 
+<!-- Let's Remember Carol Together -->
 <div class="page-section p-8 lg:px-32 xl:px-64">
-  <ccp-register></ccp-register>
+  <ccp-register (register)="onRegister($event)"></ccp-register>
 </div>
 
+<!-- Attend as a Flower -->
 <div class="page-section my-24 p-8 lg:px-32 xl:px-64">
   <div class="sm:flex sm:flex-row-reverse">
     <img
@@ -29,22 +31,16 @@
         surrogate.
       </p>
 
-      <p class="text-base leading-snug mt-2">
+      <p class="text-base leading-snug my-2">
         Flower attendees will be planted in Carol's garden after the ceremony.
       </p>
 
-      <div class="mt-4 w-100 text-center">
-        <button
-          type="button"
-          class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 shadow focus:outline-none focus:shadow-outline"
-        >
-          Leave a Note
-        </button>
-      </div>
+      <ccp-tributes [virtualGuest]="virtualGuest"></ccp-tributes>
     </div>
   </div>
 </div>
 
+<!-- Obituary -->
 <div class="page-section mt-24 p-8 lg:px-32 xl:px-64">
   <div class="sm:flex sm:flex-row">
     <img
@@ -55,9 +51,7 @@
 
     <div class="sm:ml-6">
       <h1 class="text-2xl">Carol Cline Palmer</h1>
-      <p class="text-base">
-        Obituary goes here. Something happened and then a bunch more things
-      </p>
+      <p class="text-base">Something something...</p>
 
       <div class="mt-4 w-100 text-center">
         <button
@@ -71,4 +65,4 @@
   </div>
 </div>
 
-<div class="bg-bottom py-32 lg:py-12"></div>
+<div class="bg-bottom pt-64 pb-10 sm:h-screen"></div>

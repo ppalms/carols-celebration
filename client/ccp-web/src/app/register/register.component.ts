@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { NgForm } from '@angular/forms';
+import { finalize } from 'rxjs/operators';
 import { VirtualGuest } from './shared/virtual-guest.model';
 
 @Component({
@@ -11,6 +12,7 @@ import { VirtualGuest } from './shared/virtual-guest.model';
 export class RegisterComponent {
   showForm = true;
   validateAll = false;
+  @Output() register: EventEmitter<VirtualGuest> = new EventEmitter();
 
   virtualGuest: VirtualGuest = {
     firstName: '',
@@ -29,7 +31,7 @@ export class RegisterComponent {
     registerForm.form.disable();
 
     const body = new HttpParams()
-      .set('form-name', 'zoom-register')
+      .set('form-name', 'zoomRegister')
       .append('firstName', this.virtualGuest.firstName)
       .append('lastName', this.virtualGuest.lastName)
       .append('zoomEmail', this.virtualGuest.zoomEmail);
@@ -39,7 +41,12 @@ export class RegisterComponent {
         headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
         responseType: 'text',
       })
-      .subscribe((_res) => {
+      .pipe(
+        finalize(() => {
+          this.register.emit(this.virtualGuest);
+        })
+      )
+      .subscribe((_data) => {
         this.showForm = false;
         registerForm.form.enable();
       });

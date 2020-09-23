@@ -1,5 +1,83 @@
-<h1 class="text-center text-xl">Attend as a Flower</h1>
+<div class="sm:max-w-3/4">
+  <form
+    #flowerCardForm="ngForm"
+    name="flowerCardForm"
+    (submit)="onSubmit(flowerCardForm)"
+    netlify
+    netlify-honeypot="bot-field"
+  >
+    <div class="w-full mt-2 border-b border-blue-500">
+      <input
+        type="text"
+        id="firstName"
+        name="firstName"
+        [(ngModel)]="virtualGuest.firstName"
+        #firstName="ngModel"
+        class="appearance-none bg-transparent border-none w-full text-gray-700 mr-3 py-2 px-2 leading-tight focus:outline-none"
+        placeholder="First name"
+        required
+      />
+    </div>
+    <div
+      *ngIf="
+        firstName.invalid &&
+        (firstName.dirty || firstName.touched || validateAll)
+      "
+      class="text-red-700 ml-2"
+    >
+      <small>First name is required</small>
+    </div>
 
-<div>
-  
+    <div class="w-full mt-2 border-b border-blue-500">
+      <input
+        type="text"
+        id="lastName"
+        name="lastName"
+        [(ngModel)]="virtualGuest.lastName"
+        #lastName="ngModel"
+        class="appearance-none bg-transparent border-none w-full text-gray-700 mr-3 py-2 px-2 leading-tight focus:outline-none"
+        placeholder="Last name"
+        required
+      />
+    </div>
+    <div
+      *ngIf="
+        lastName.invalid && (lastName.dirty || lastName.touched || validateAll)
+      "
+      class="text-red-700 ml-2"
+    >
+      <small>Last name is required</small>
+    </div>
+
+    <div class="w-full mt-6">
+      <textarea
+        name="message"
+        id="message"
+        [(ngModel)]="flowerCard"
+        #message="ngModel"
+        class="appearance-none border border-blue-200 shadow-sm w-full text-gray-700 mr-3 py-2 px-2 leading-tight focus:outline-none"
+        rows="5"
+        placeholder="Enter a message"
+        required
+      ></textarea>
+    </div>
+    <div
+      *ngIf="
+        message.invalid && (message.dirty || message.touched || validateAll)
+      "
+      class="text-red-700 ml-2"
+    >
+      <small>Please enter a message</small>
+    </div>
+
+    <div class="w-full mt-4 text-center">
+      <button
+        type="submit"
+        class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 shadow focus:outline-none focus:shadow-outline"
+        [disabled]="!flowerCardForm.dirty"
+      >
+        Send
+      </button>
+    </div>
+  </form>
 </div>

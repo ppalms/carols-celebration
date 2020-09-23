@@ -1,6 +1,7 @@
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Component, Input, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
+// import { finalize } from 'rxjs/operators';
 import { VirtualGuest } from '../register/shared/virtual-guest.model';
 
 @Component({
@@ -11,6 +12,7 @@ import { VirtualGuest } from '../register/shared/virtual-guest.model';
 export class TributesComponent {
   @Input() virtualGuest: VirtualGuest;
   flowerCard: string;
+  showForm = true;
   validateAll = false;
 
   constructor(public http: HttpClient) {}
@@ -34,6 +36,15 @@ export class TributesComponent {
         headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
         responseType: 'text',
       })
-      .subscribe((_res) => {});
+      // Uncomment for testing
+      // .pipe(
+      //   finalize(() => {
+      //     this.showForm = false;
+      //   })
+      // )
+      .subscribe((_data) => {
+        this.showForm = false;
+        flowerCardForm.form.enable();
+      });
   }
 }

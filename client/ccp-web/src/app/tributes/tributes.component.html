@@ -1,5 +1,6 @@
 <div class="sm:max-w-3/4">
   <form
+    *ngIf="showForm"
     #flowerCardForm="ngForm"
     name="flowerCardForm"
     (submit)="onSubmit(flowerCardForm)"
@@ -80,4 +81,8 @@
       </button>
     </div>
   </form>
+
+  <div *ngIf="!showForm" class="bg-green-200 p-4 mt-8 mb-4 text-center">
+    Note sent
+  </div>
 </div>

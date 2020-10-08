@@ -6,16 +6,18 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NavComponent } from './nav/nav.component';
-import { TributesComponent } from './tributes/tributes.component';
 import { RegisterComponent } from './register/register.component';
+import { TributesComponent } from './tributes/tributes.component';
+import { DonationsComponent } from './donations/donations.component';
 import { LandingComponent } from './landing/landing.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavComponent,
-    TributesComponent,
     RegisterComponent,
+    TributesComponent,
+    DonationsComponent,
     LandingComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, FormsModule, HttpClientModule],

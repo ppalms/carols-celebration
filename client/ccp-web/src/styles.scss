@@ -7,14 +7,6 @@
     @apply text-gray-800 font-display;
   }
 
-  a {
-    @apply text-blue-600 font-bold;
-  }
-
-  a:hover {
-    @apply text-blue-800 font-extrabold;
-  }
-
   .bg-flower {
     background: url("/assets/images/bg-cone-flower.jpg") top no-repeat;
     -webkit-background-size: 100% auto;

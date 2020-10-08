@@ -3,8 +3,16 @@
 @import "tailwindcss/utilities";
 
 @layer base {
-  h1 {
+  h1, h2 {
     @apply text-gray-800 font-display;
+  }
+
+  a {
+    @apply text-blue-600 font-bold;
+  }
+
+  a:hover {
+    @apply text-blue-800 font-extrabold;
   }
 
   .bg-flower {
